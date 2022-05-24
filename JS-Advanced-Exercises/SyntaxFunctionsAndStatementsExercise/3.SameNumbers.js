@@ -1,18 +1,18 @@
-function sameNumbers(number){
-
-    let lastDigit = number % 10;
-    let falseCounter = 0;
+function solve(num) {
+    let numString = String(num);
+    let areSame = true;
     let sum = 0;
-    while (number /= 10 > 0) {
-        let digit = number % 10;
-        sum += digit;
-        if (lastDigit !== digit) {
-            falseCounter++;
+    for (let i = 0; i < numString.length / 2; i++) {
+
+        if (numString[i] != numString[i + 1]) {
+            areSame = false;
+            break;
         }
-        digit = number / 10;
-        number = Math.floor(number / 10);
     }
 
-    console.log(falseCounter === 0)
+    for (let i = 0; i < numString.length; i++) {
+        sum += Number(numString[i]);
+    }
+    console.log(areSame);
     console.log(sum);
 }
