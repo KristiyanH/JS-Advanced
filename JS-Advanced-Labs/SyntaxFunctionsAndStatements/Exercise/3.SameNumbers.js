@@ -4,7 +4,7 @@ function solve(num) {
     let sum = 0;
     for (let i = 0; i < numString.length / 2; i++) {
 
-        if (numString[i] !== numString[i + 1]) {
+        if (numString[i] != numString[i + 1]) {
             areSame = false;
             break;
         }
@@ -16,5 +16,3 @@ function solve(num) {
     console.log(areSame);
     console.log(sum);
 }
-
-solve(1234)
