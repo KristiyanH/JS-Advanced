@@ -2,17 +2,18 @@ function solve(num) {
     let numString = String(num);
     let areSame = true;
     let sum = 0;
-    for (let i = 0; i < numString.length / 2; i++) {
+    let firstDigit = numString[0];
 
-        if (numString[i] != numString[i + 1]) {
+    for (let i = 0; i < numString.length; i++) {
+        let currentDigit = +numString[i];
+        sum += currentDigit;
+        if (firstDigit != currentDigit) {
             areSame = false;
-            break;
         }
     }
 
-    for (let i = 0; i < numString.length; i++) {
-        sum += Number(numString[i]);
-    }
     console.log(areSame);
     console.log(sum);
 }
+
+solve(2222222);
