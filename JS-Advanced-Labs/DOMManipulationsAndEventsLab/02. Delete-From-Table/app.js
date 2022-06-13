@@ -1,14 +1,18 @@
 function deleteByEmail() {
     let tbody = document.querySelector('tbody');
     let input = document.querySelector('input[type="text"]').value;
+    let result = document.getElementById('result');
+    let isDeleted = false;
 
-    let children = tbody.children;
-
-    for (const child of children) {
+    for (const child of Array.from(tbody.children)) {
         if (child.innerHTML.includes(input)) {
             tbody.removeChild(child);
+            result.textContent = 'Deleted.'
+            isDeleted = true;
         }
     }
 
-    document.querySelector('input[type="text"]').value = '';
+    if (!isDeleted) {
+        result.textContent = 'Not found.'
+    }
 }
