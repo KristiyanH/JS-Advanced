@@ -5,14 +5,10 @@ function focused() {
     });
 
     function onFocus(event) {
-        if (event.target.state = 'focused') {
-            event.target.parentElement.className = 'focused';
-        }
+        event.target.parentElement.className = 'focused';
     }
 
     function onBlur(event) {
-        if (event.target.state = 'blur') {
-            event.target.parentElement.className = '';
-        }
+        event.target.parentElement.className = '';
     }
 }
