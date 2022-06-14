@@ -3,10 +3,10 @@ function lockedProfile() {
 
     function onClick(event) {
         let parent = event.target.parentElement;
-        let hiddenFields = parent.querySelector('div');
         let lock = parent.querySelector('input[value="lock"]');
 
         if (!lock.checked) {
+            let hiddenFields = parent.querySelector('div');
             if (event.target.textContent == 'Show more') {
                 hiddenFields.style.display = 'block';
                 event.target.textContent = 'Hide it';
@@ -14,7 +14,6 @@ function lockedProfile() {
                 hiddenFields.style.display = 'none';
                 event.target.textContent = 'Show more';
             }
-
         }
     }
 }
