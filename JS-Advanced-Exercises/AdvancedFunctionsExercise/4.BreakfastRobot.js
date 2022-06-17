@@ -69,15 +69,15 @@ console.log(manager("restock fat 10"));
 console.log(manager("prepare burger 1"));
 console.log(manager("report"))
 
-// console.log(manager("prepare turkey 1"));
-// console.log(manager("restock protein 10"));
-// console.log(manager("prepare turkey 1"));
-// console.log(manager("restock carbohydrate 10"));
-// console.log(manager("prepare turkey 1"));
-// console.log(manager("restock fat 10"));
-// console.log(manager("prepare turkey 1"));
-// console.log(manager("restock flavour 10"));
-// console.log(manager("prepare turkey 1"));
-// console.log(manager("report"));
+console.log(manager("prepare turkey 1"));
+console.log(manager("restock protein 10"));
+console.log(manager("prepare turkey 1"));
+console.log(manager("restock carbohydrate 10"));
+console.log(manager("prepare turkey 1"));
+console.log(manager("restock fat 10"));
+console.log(manager("prepare turkey 1"));
+console.log(manager("restock flavour 10"));
+console.log(manager("prepare turkey 1"));
+console.log(manager("report"));
 
 
