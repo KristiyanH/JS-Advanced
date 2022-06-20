@@ -1,4 +1,4 @@
-function echo(text){
+function echo(text) {
     let string = text;
 
     console.log(string.length)
