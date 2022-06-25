@@ -23,11 +23,12 @@ function solve() {
         const originalCost = originalCostEl.value;
         const sellingPrice = sellingPriceEl.value;
 
-        if (make == '' || model == '' || year == '' || fuel == '' || originalCost == '' || sellingPrice == '') {
+        if (!make || !model || !year || !fuel || !originalCost || !sellingPrice) {
             return;
         }
 
         let tr = document.createElement('tr');
+        tr.className = 'row';
         tr.innerHTML = `<td>${makeEl.value}</td>
           <td>${modelEl.value}</td>
           <td>${yearEl.value}</td>
@@ -51,7 +52,7 @@ function solve() {
         let editBtn = tr.querySelector('.edit');
         let sellBtn = tr.querySelector('.sell');
 
-        editBtn.addEventListener('click', (e) => {
+        editBtn.addEventListener('click', () => {
             makeEl.value = make;
             modelEl.value = model;
             yearEl.value = year;

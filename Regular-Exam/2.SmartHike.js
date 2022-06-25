@@ -57,7 +57,7 @@ class SmartHike {
                 result += `${this.username} hiked ${hike.peak} for ${hike.time} hours\n`;
             }
 
-            return result;
+            return result.trimEnd();
         }
 
         let hikes = this.listOfHikes.filter(x => x.difficultyLevel == criteria).sort((a, b) => a.time - b.time);
@@ -71,7 +71,7 @@ class SmartHike {
     }
 }
 
-// 88/100
+// 100/100
 
 // const user = new SmartHike('Vili');
 // console.log(user.addGoal('Musala', 2925));
