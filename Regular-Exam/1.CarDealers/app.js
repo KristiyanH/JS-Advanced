@@ -1,27 +1,30 @@
 window.addEventListener("load", solve);
 
 function solve() {
-    let makeEl = document.getElementById('make');
-    let modelEl = document.getElementById('model');
-    let yearEl = document.getElementById('year');
-    let fuelEl = document.getElementById('fuel');
-    let originalCostEl = document.getElementById('original-cost');
-    let sellingPriceEl = document.getElementById('selling-price');
-    let tbodyEl = document.getElementById('table-body');
-    let carListUl = document.getElementById('cars-list');
-    let totalProfitEl = document.getElementById('profit');
+    const input = {
+        makeEl: document.getElementById('make'),
+        modelEl: document.getElementById('model'),
+        yearEl: document.getElementById('year'),
+        fuelEl: document.getElementById('fuel'),
+        originalCostEl: document.getElementById('original-cost'),
+        sellingPriceEl: document.getElementById('selling-price')
+    }
+    const elements = {
+        tbodyEl: document.getElementById('table-body'),
+        carListUl: document.getElementById('cars-list'),
+        totalProfitEl: document.getElementById('profit')
+    }
     document.getElementById('publish').addEventListener('click', onPublish);
     let totalProfit = 0;
 
     function onPublish(event) {
-
         event.preventDefault();
-        const make = makeEl.value;
-        const model = modelEl.value;
-        const year = yearEl.value;
-        const fuel = fuelEl.value;
-        const originalCost = originalCostEl.value;
-        const sellingPrice = sellingPriceEl.value;
+        const make = input.makeEl.value;
+        const model = input.modelEl.value;
+        const year = input.yearEl.value;
+        const fuel = input.fuelEl.value;
+        const originalCost = input.originalCostEl.value;
+        const sellingPrice = input.sellingPriceEl.value;
 
         if (!make || !model || !year || !fuel || !originalCost || !sellingPrice) {
             return;
@@ -29,41 +32,37 @@ function solve() {
 
         let tr = document.createElement('tr');
         tr.className = 'row';
-        tr.innerHTML = `<td>${makeEl.value}</td>
-          <td>${modelEl.value}</td>
-          <td>${yearEl.value}</td>
-          <td>${fuelEl.value}</td>
-          <td>${originalCostEl.value}</td>
-          <td>${sellingPriceEl.value}</td>
+        tr.innerHTML = `<td>${make}</td>
+          <td>${model}</td>
+          <td>${year}</td>
+          <td>${fuel}</td>
+          <td>${originalCost}</td>
+          <td>${sellingPrice}</td>
           <td>
           <button class="action-btn edit">Edit</button>
           <button class="action-btn sell">Sell</button>
           </td>`;
 
-        tbodyEl.appendChild(tr);
+        elements.tbodyEl.appendChild(tr);
 
-        makeEl.value = '';
-        modelEl.value = '';
-        yearEl.value = '';
-        fuelEl.value = '';
-        originalCostEl.value = '';
-        sellingPriceEl.value = '';
+        for (const inputKey in input) {
+            input[inputKey].value = ''
+        }
 
         let editBtn = tr.querySelector('.edit');
         let sellBtn = tr.querySelector('.sell');
 
         editBtn.addEventListener('click', () => {
-            makeEl.value = make;
-            modelEl.value = model;
-            yearEl.value = year;
-            fuelEl.value = fuel
-            originalCostEl.value = originalCost;
-            sellingPriceEl.value = sellingPrice;
+            input.makeEl.value = make;
+            input.modelEl.value = model;
+            input.yearEl.value = year;
+            input.fuelEl.value = fuel
+            input.originalCostEl.value = originalCost;
+            input.sellingPriceEl.value = sellingPrice;
             tr.remove();
         });
 
         sellBtn.addEventListener('click', () => {
-            tr.remove();
             let profit = sellingPrice - originalCost;
             totalProfit += profit;
             let li = document.createElement('li');
@@ -72,8 +71,9 @@ function solve() {
             <span>${year}</span>
             <span>${profit}</span>`;
 
-            carListUl.appendChild(li);
-            totalProfitEl.textContent = totalProfit.toFixed(2);
+            tr.remove();
+            elements.carListUl.appendChild(li);
+            elements.totalProfitEl.textContent = totalProfit.toFixed(2);
         })
     }
 }
